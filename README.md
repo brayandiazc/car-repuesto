@@ -5,6 +5,7 @@ Proyecto basado en [Python](https://www.python.org/), [Django](https://www.djang
 
 ## 🗺️ Diagrama de Flujo
 
+```
 flowchart TD
     A[Usuario accede al sistema] --> B{¿Autenticado?}
     B -- Sí --> C[Mostrar dashboard principal]
@@ -43,7 +44,7 @@ flowchart TD
 
     style Z fill:#fff3cd,stroke:#856404
     style AA fill:#fff3cd,stroke:#856404
-
+```
 
 <!-- Aquí irá el diagrama de flujo del funcionamiento general de la aplicación -->
 
