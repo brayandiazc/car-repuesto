@@ -5,7 +5,7 @@ Proyecto basado en [Python](https://www.python.org/), [Django](https://www.djang
 
 ## 🗺️ Diagrama de Flujo
 
-```
+```mermaid
 flowchart TD
     A[Usuario accede al sistema] --> B{¿Autenticado?}
     B -- Sí --> C[Mostrar dashboard principal]
