@@ -77,7 +77,65 @@ gitGraph
 
 ## 🏛️ Modelo Entidad-Relación
 
-<!-- Aquí irá el esquema o diagrama de entidades y relaciones principales del proyecto -->
+```mermaid
+erDiagram
+    USER {
+      int id PK
+      string username
+      string email
+      string password_hash
+      string role
+      boolean is_active
+      datetime created_at
+      datetime updated_at
+    }
+    VEHICLE {
+      int id PK
+      string plate
+      string brand
+      string model
+      int year
+      string owner_name
+      string owner_contact
+      datetime created_at
+      datetime updated_at
+    }
+    TICKET {
+      int id PK
+      int vehicle_id FK
+      int user_id FK
+      string type
+      string description
+      string priority
+      string status
+      datetime created_at
+      datetime updated_at
+      datetime closed_at
+    }
+    TICKETHISTORY {
+      int id PK
+      int ticket_id FK
+      int user_id FK
+      string old_status
+      string new_status
+      string comment
+      datetime changed_at
+    }
+    COMMENT {
+      int id PK
+      int ticket_id FK
+      int user_id FK
+      string content
+      datetime created_at
+    }
+
+    USER ||--o{ TICKET : "registra"
+    VEHICLE ||--o{ TICKET : "tiene"
+    TICKET ||--o{ TICKETHISTORY : "historial"
+    TICKET ||--o{ COMMENT : "comentarios"
+    USER ||--o{ TICKETHISTORY : "modifica"
+    USER ||--o{ COMMENT : "escribe"
+```
 
 ## 🖼️ Vista Previa
 
