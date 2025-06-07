@@ -5,6 +5,46 @@ Proyecto basado en [Python](https://www.python.org/), [Django](https://www.djang
 
 ## 🗺️ Diagrama de Flujo
 
+flowchart TD
+    A[Usuario accede al sistema] --> B{¿Autenticado?}
+    B -- Sí --> C[Mostrar dashboard principal]
+    B -- No --> Z[Mostrar pantalla de login]
+    Z --> AA[Validar usuario y contraseña]
+    AA -- Credenciales válidas --> C
+    AA -- Credenciales inválidas --> Z
+
+    C --> D[Crear nuevo ticket de mantenimiento]
+    C --> E[Visualizar lista de tickets]
+    C --> F[Filtrar tickets por estado, tipo o vehículo]
+
+    D --> G[Ingresar datos del vehículo]
+    D --> H[Seleccionar tipo de mantenimiento]
+    D --> I[Describir problema o solicitud]
+    D --> J[Seleccionar prioridad]
+    D --> K[Registrar ticket]
+    K --> E
+
+    E --> L[Seleccionar ticket para actualizar estado]
+    L --> M{¿Actualizar estado?}
+    M -- Sí --> N[Registrar nuevo estado y comentarios]
+    N --> O[Actualizar historial del ticket]
+    O --> E
+
+    M -- No --> E
+
+    F --> E
+
+    E --> P{¿Cerrar ticket?}
+    P -- Sí --> Q[Actualizar estado a Cerrado]
+    Q --> O
+    P -- No --> E
+
+    O --> R[Consultar historial de cambios y comentarios]
+
+    style Z fill:#fff3cd,stroke:#856404
+    style AA fill:#fff3cd,stroke:#856404
+
+
 <!-- Aquí irá el diagrama de flujo del funcionamiento general de la aplicación -->
 
 ## 🌿 Diagrama de Ramas (Git Flow)
