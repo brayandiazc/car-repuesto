@@ -46,11 +46,34 @@ flowchart TD
     style AA fill:#fff3cd,stroke:#856404
 ```
 
-<!-- Aquí irá el diagrama de flujo del funcionamiento general de la aplicación -->
-
 ## 🌿 Diagrama de Ramas (Git Flow)
 
-<!-- Aquí irá el diagrama de ramas y la explicación del flujo de trabajo en Git -->
+```mermaid
+gitGraph
+   commit id: "Main"
+   branch staging
+   checkout staging
+   commit id: "Staging 1"
+   branch develop
+   checkout develop
+   commit id: "Develop 1"
+   branch feature/login
+   checkout feature/login
+   commit id: "Feature: Login"
+   checkout develop
+   merge feature/login id: "Merge: Login"
+   branch feature/tickets
+   checkout feature/tickets
+   commit id: "Feature: Tickets"
+   checkout develop
+   merge feature/tickets id: "Merge: Tickets"
+   checkout staging
+   merge develop id: "Merge: Develop -> Staging"
+   commit id: "Staging 2"
+   checkout main
+   merge staging id: "Merge: Staging -> Main"
+   commit id: "Release"
+```
 
 ## 🏛️ Modelo Entidad-Relación
 
